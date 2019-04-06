@@ -36,22 +36,30 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
-  static String _logoPath1Default = 'images/logo.png';
-  static String _logoPath2Default = 'images/logo2.png';
+  static String _logoPathDefault = 'images/logo.png';
 
-  String _logoPath1 = _logoPath1Default;
-  String _logoPath2 = _logoPath2Default;
+  static String _logo1 = 'images/logo2.png';
 
-  String _logoPath = _logoPath1Default; // Set Default Path
+  String _logoPath1 = _logoPathDefault;
+  String _logoPath2 = _logoPathDefault;
+
+  String _logoPath = _logoPathDefault; // Set Default Path
 
   void _changeLogoPath() {
     setState(() {
-      if (0 < _counter && _counter < 20) { _logoPath1 = _logoPath1Default };  //todo
+      if (0 < _counter && _counter < 20) {
+        _logoPath1 = '$_logoPathDefault';
+        _logoPath2 = '$_logoPathDefault';
+      } else if (21 < _counter && _counter < 40) {
+        _logoPath2 = '$_logo1';
+      }
     });
   }
 
   void _changePhoto() {
     // the method to change photo
+    _changeLogoPath();
+
     setState(() {
       if (_state) {
         _logoPath = _logoPath2;
