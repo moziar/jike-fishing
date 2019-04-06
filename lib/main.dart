@@ -40,6 +40,8 @@ class _MyHomePageState extends State<MyHomePage> {
 
   static String _logo2 = 'images/logo2.png';    // a
   static String _logo3 = 'images/logo3.png';    // fishing
+  static String _logo4 = 'images/logo4.png';    // Sube sube sube
+  static String _logo5 = 'images/logo5.png';    // Sube el volumen
 
   String _logoPath1 = _logoPathDefault;   // the 1st photo
   String _logoPath2 = _logoPathDefault;   // the 2st photo
@@ -54,6 +56,9 @@ class _MyHomePageState extends State<MyHomePage> {
       } else if (20 <= _counter && _counter < 40) {
         _logoPath1 = '$_logo2';
         _logoPath2 = '$_logo3';
+      } else if (40 <= _counter && _counter < 80){
+        _logoPath1 = '$_logo4';
+        _logoPath2 = '$_logo5';
       }
     });
   }
