@@ -50,7 +50,7 @@ class _MyHomePageState extends State<MyHomePage> {
       if (0 < _counter && _counter < 20) {
         _logoPath1 = '$_logoPathDefault';
         _logoPath2 = '$_logoPathDefault';
-      } else if (21 < _counter && _counter < 40) {
+      } else if (20 < _counter && _counter < 40) {
         _logoPath2 = '$_logo1';
       }
     });
