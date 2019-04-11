@@ -7,8 +7,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Fishing',
+      title: '即刻摸鱼',
       theme: ThemeData(
+        platform: TargetPlatform.android, // todo change the platform for ios
         primarySwatch: Colors.yellow,
       ),
       home: MyHomePage(title: '即刻摸鱼'),
@@ -38,13 +39,13 @@ class _MyHomePageState extends State<MyHomePage> {
 
   static String _logoPathDefault = 'images/logo.png';
 
-  static String _logo2 = 'images/logo2.png';    // a
-  static String _logo3 = 'images/logo3.png';    // fishing
-  static String _logo4 = 'images/logo4.png';    // Sube sube sube
-  static String _logo5 = 'images/logo5.png';    // Sube el volumen
+  static String _logo2 = 'images/logo2.png'; // a
+  static String _logo3 = 'images/logo3.png'; // fishing
+  static String _logo4 = 'images/logo4.png'; // Sube sube sube
+  static String _logo5 = 'images/logo5.png'; // Sube el volumen
 
-  String _logoPath1 = _logoPathDefault;   // the 1st photo
-  String _logoPath2 = _logoPathDefault;   // the 2st photo
+  String _logoPath1 = _logoPathDefault; // the 1st photo
+  String _logoPath2 = _logoPathDefault; // the 2st photo
 
   String _logoPath = _logoPathDefault; // Set Default Path
 
@@ -56,7 +57,7 @@ class _MyHomePageState extends State<MyHomePage> {
       } else if (20 <= _counter && _counter < 40) {
         _logoPath1 = '$_logo2';
         _logoPath2 = '$_logo3';
-      } else if (40 <= _counter && _counter < 80){
+      } else if (40 <= _counter && _counter < 80) {
         _logoPath1 = '$_logo4';
         _logoPath2 = '$_logo5';
       }
@@ -82,13 +83,16 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
+        title: Text.rich(TextSpan(
+            text: widget.title,
+            style: TextStyle(
+                color: Colors.grey, decorationColor: Colors.blueAccent))),
       ),
       body: Center(
         // Center is a layout widget. It takes a single child and positions it
         // in the middle of the parent.
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text.rich(TextSpan(children: [
               TextSpan(
@@ -113,10 +117,14 @@ class _MyHomePageState extends State<MyHomePage> {
               splashColor: Color(0x00000000),
               color: Color(0x00000000),
               highlightColor: Color(0x00000000),
-              child: Image(
-                image: AssetImage('$_logoPath'),
-                width: 230.0,
-                height: 220.0,
+              child: Container(
+                width: 400,
+                height: 400,
+                child: Image(
+                  image: AssetImage('$_logoPath'),
+                  width: 200,
+                  height: 200,
+                ),
               ),
             ),
           ],
